@@ -1,0 +1,13 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding-top: 62px; /* Height of fixed header */
+}
+
+@media (max-width: 767px) {
+  .app {
+    padding-top: 56px;
+  }
+}

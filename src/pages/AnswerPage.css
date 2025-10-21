@@ -1,0 +1,139 @@
+.answer-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.answer-header {
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.answer-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 48px;
+  font-weight: 400;
+  margin: 0;
+  color: #253533;
+  line-height: 1.2;
+}
+
+.answer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.answer-main {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #253533;
+}
+
+.answer-main p {
+  margin-bottom: 20px;
+}
+
+.answer-main strong {
+  font-weight: 600;
+}
+
+.answer-main a {
+  color: #253533;
+  text-decoration: underline;
+}
+
+.answer-main a:hover {
+  opacity: 0.7;
+}
+
+.answer-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.answer-section {
+  padding: 32px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.section-heading {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0 0 16px 0;
+  color: #253533;
+}
+
+.section-content {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #666;
+}
+
+.section-content p {
+  margin-bottom: 16px;
+}
+
+.section-content strong {
+  font-weight: 600;
+  color: #253533;
+}
+
+.related-links {
+  padding-top: 32px;
+  border-top: 1px solid #d4d4d4;
+}
+
+.related-links-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: #253533;
+}
+
+.related-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.related-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #ffffff;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  color: #253533;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.related-link:hover {
+  background: #f9f9f9;
+  transform: translateX(4px);
+}
+
+@media (max-width: 767px) {
+  .answer-title {
+    font-size: 32px;
+  }
+
+  .answer-main {
+    font-size: 16px;
+  }
+
+  .section-heading {
+    font-size: 24px;
+  }
+
+  .answer-section {
+    padding: 24px;
+  }
+}
+

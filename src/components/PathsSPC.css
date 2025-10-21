@@ -1,0 +1,166 @@
+.paths-spc {
+  background-color: #ffffff;
+}
+
+.cards-block {
+  position: relative;
+}
+
+.scrollable-cards-block {
+  margin-top: 32px;
+}
+
+.cards-container {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.hide-scrollbar-cards {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  background-color: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  min-height: 400px;
+}
+
+.card-heading {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: #253533;
+}
+
+.card-text-container {
+  margin-bottom: 32px;
+}
+
+.caption {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #253533;
+}
+
+.caption strong {
+  font-weight: 600;
+}
+
+.button-primary {
+  display: inline-flex;
+}
+
+.button-link-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  border: 1.5px solid #253533;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #253533;
+  background-color: transparent;
+  transition: all 0.2s;
+}
+
+.button-link-block:hover {
+  background-color: #253533;
+  color: #fff;
+}
+
+.button-link-block:hover .svg-arrow-icon {
+  color: #fff;
+}
+
+.text-block {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.svg-arrow-icon {
+  width: 20px;
+  height: 20px;
+  color: #253533;
+  transition: color 0.2s;
+}
+
+.svg-arrow-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.card-paging-block {
+  text-align: center;
+}
+
+.card-paging-block.pathways {
+  display: none;
+}
+
+.paging-label {
+  font-size: 14px;
+  color: #253533;
+}
+
+@media (max-width: 991px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .card-heading {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    grid-auto-flow: column;
+    grid-auto-columns: 85%;
+  }
+  
+  .card {
+    scroll-snap-align: start;
+    padding: 32px;
+    min-height: 350px;
+  }
+  
+  .card-heading {
+    font-size: 28px;
+  }
+  
+  .card-paging-block.pathways {
+    display: block;
+  }
+}
+
+@media (max-width: 479px) {
+  .card {
+    padding: 24px;
+  }
+  
+  .card-heading {
+    font-size: 24px;
+  }
+  
+  .caption {
+    font-size: 14px;
+  }
+}
+

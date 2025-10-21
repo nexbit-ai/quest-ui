@@ -1,0 +1,27 @@
+.div-block-32-copy {
+  width: 100%;
+  padding: 0 20px;
+  margin: 20px 0 30px 0;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.image-9 {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .div-block-32-copy {
+    margin: 15px 0 20px 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .div-block-32-copy {
+    margin: 10px 0 15px 0;
+  }
+}

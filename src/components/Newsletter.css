@@ -1,0 +1,163 @@
+.newsletter-section {
+  padding: 100px 0;
+  background-color: #ffffff;
+  border-top: 1px solid #d4d4d4;
+}
+
+.newsletter-form-container {
+  width: 100%;
+}
+
+.newsletter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.newsletter-headline-container h2 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+  color: #253533;
+}
+
+.newsletter-email-form-block {
+  width: 100%;
+}
+
+.form {
+  width: 100%;
+}
+
+.email-form-block {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border-bottom: 1.5px solid #253533;
+  padding-bottom: 12px;
+}
+
+.email-field {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #253533;
+  outline: none;
+  padding: 8px 0;
+}
+
+.email-field::placeholder {
+  color: #999;
+}
+
+.email-submit-block {
+  display: flex;
+  align-items: center;
+}
+
+.email-submit-block.show {
+  opacity: 1;
+}
+
+.newsletter-submit-embed {
+  display: flex;
+  align-items: center;
+}
+
+.newsletter-submit-embed label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.submit-button {
+  font-size: 14px;
+  color: #253533;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.newsletter-submit-embed svg {
+  margin: 0;
+  width: 15px;
+  height: 16px;
+}
+
+.success-message {
+  padding: 16px 0;
+  border-bottom: 1.5px solid #253533;
+}
+
+.success-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.success-text {
+  font-size: 16px;
+  color: #253533;
+}
+
+.svg-check {
+  display: flex;
+  align-items: center;
+}
+
+.svg-check svg {
+  width: 17px;
+  height: 21px;
+}
+
+.error-message {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: #fee;
+  border-radius: 4px;
+}
+
+.error-text {
+  font-size: 14px;
+  color: #c33;
+}
+
+@media (max-width: 991px) {
+  .newsletter-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .newsletter-headline-container h2 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .newsletter-section {
+    padding: 80px 0;
+  }
+  
+  .newsletter-headline-container h2 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 479px) {
+  .newsletter-section {
+    padding: 60px 0;
+  }
+  
+  .newsletter-headline-container h2 {
+    font-size: 28px;
+  }
+}
+
