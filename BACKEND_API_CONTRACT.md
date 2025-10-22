@@ -74,7 +74,7 @@ The API must return a JSON response with a `type` field that indicates which kin
 
 ### 2. Redirect Response
 
-**When to use:** When the user's query should redirect to a specific page (e.g., "tell me about Fellowship", "who is on the team", "show me company X")
+**When to use:** When the user's query should open a specific page in a new tab (e.g., "tell me about Fellowship", "who is on the team", "show me company X")
 
 **Response Structure:**
 ```json
@@ -92,9 +92,11 @@ The API must return a JSON response with a `type` field that indicates which kin
 **Field Descriptions:**
 - `type`: Always `"redirect"`
 - `query`: The original user query
-- `data.url`: The URL to redirect to (can be relative or absolute)
+- `data.url`: The URL to open in a new tab
+  - **Relative URLs** (e.g., `/fellowship`, `/team`): Will open `https://www.southparkcommons.com{url}` in a new tab
+  - **Absolute URLs** (e.g., `https://example.com`): Will open the exact URL in a new tab
 - `data.title`: Title of the destination page
-- `data.description`: (Optional) Brief description shown before redirect
+- `data.description`: (Optional) Brief description of where the user will be taken
 
 ---
 
@@ -167,9 +169,11 @@ The API must return a JSON response with a `type` field that indicates which kin
 **Field Descriptions:**
 - `type`: Always `"error"`
 - `query`: The original user query
-- `data.message`: User-friendly error message
+- `data.message`: Error message for logging/debugging (not shown to user)
 - `data.code`: (Optional) Error code for debugging
   - Common codes: `"NOT_FOUND"`, `"INVALID_QUERY"`, `"SERVER_ERROR"`
+
+**Note:** The frontend displays a static, friendly message to users regardless of the error message sent. The `data.message` field is logged for debugging purposes only.
 
 ---
 
@@ -224,7 +228,7 @@ The API must return a JSON response with a `type` field that indicates which kin
   "data": {
     "url": "/founder-fellowship",
     "title": "Founder Fellowship",
-    "description": "Learn more about our Founder Fellowship program"
+    "description": "Opens the Founder Fellowship page in a new tab"
   }
 }
 ```
@@ -277,11 +281,14 @@ The API must return a JSON response with a `type` field that indicates which kin
   "type": "error",
   "query": "asdfghjkl",
   "data": {
-    "message": "I didn't understand your query. Could you please rephrase?",
+    "message": "Invalid query format",
     "code": "INVALID_QUERY"
   }
 }
 ```
+
+**What the user sees:**
+"Nothing turned up for that. Try asking about a company, team, or domain related to SPC. Curiosity's a good start, though."
 
 ---
 
@@ -296,7 +303,10 @@ The API must return a JSON response with a `type` field that indicates which kin
 
 1. The `query` field should always echo back the user's original query
 2. All text content can include HTML for rich formatting (will be sanitized on frontend)
-3. URLs in `redirect` type can be relative (e.g., `/fellowship`) or absolute (e.g., `https://example.com`)
+3. URLs in `redirect` type:
+   - **Relative URLs** (e.g., `/fellowship`, `/team`, `/companies`) will redirect to `https://www.southparkcommons.com{url}`
+   - **Absolute URLs** (e.g., `https://example.com`, `https://other-site.com/page`) will redirect to the exact URL as provided
+   - Use relative URLs for South Park Commons pages, absolute URLs for external sites
 4. Logo URLs should be valid, accessible image URLs (HTTPS preferred)
 5. Keep descriptions concise and user-friendly
 6. The frontend will handle routing and rendering based on the `type` field

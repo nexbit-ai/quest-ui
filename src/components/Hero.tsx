@@ -29,12 +29,17 @@ const Hero = () => {
           break
 
         case ResponseType.REDIRECT:
-          // Check if URL is external or internal
-          if (response.data.url.startsWith('http')) {
-            window.location.href = response.data.url
+          // Check if URL is absolute or relative
+          let redirectUrl: string
+          if (response.data.url.startsWith('http://') || response.data.url.startsWith('https://')) {
+            // Absolute URL - use as is
+            redirectUrl = response.data.url
           } else {
-            window.location.href = response.data.url
+            // Relative URL - redirect to southparkcommons.com
+            redirectUrl = `https://www.southparkcommons.com${response.data.url}`
           }
+          // Open in new tab
+          window.open(redirectUrl, '_blank', 'noopener,noreferrer')
           break
 
         case ResponseType.ANSWER:
@@ -42,7 +47,7 @@ const Hero = () => {
           break
 
         case ResponseType.ERROR:
-          setError(response.data.message)
+          setError("Nothing turned up for that. Try asking about a company, team, or domain related to SPC. Curiosity is a good start, though.")
           break
 
         default:
@@ -50,7 +55,7 @@ const Hero = () => {
       }
     } catch (err) {
       console.error('Search failed:', err)
-      setError('Failed to search. Please try again.')
+      setError("Nothing turned up for that. Try asking about a company, team, or domain related to SPC. Curiosity is a good start, though.")
     } finally {
       setIsLoading(false)
     }
@@ -90,7 +95,15 @@ const Hero = () => {
               {isLoading ? 'Searching...' : 'Go'}
             </button>
           </div>
-          {error && <div className="search-error">{error}</div>}
+          {error && (
+            <div className="search-error">
+              <div className="error-icon">💭</div>
+              <div className="error-content">
+                <p className="error-main">Nothing turned up for that. Try asking about a company, team, or domain related to SPC.</p>
+                <p className="error-tagline">Curiosity is a good start, though.</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

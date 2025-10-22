@@ -38,13 +38,16 @@ The Hero component automatically routes based on response type:
 navigate('/results/companies', { state: response })
 
 // Redirect
-window.location.href = response.data.url
+const redirectUrl = response.data.url.startsWith('http')
+  ? response.data.url
+  : `https://www.southparkcommons.com${response.data.url}`
+window.open(redirectUrl, '_blank', 'noopener,noreferrer') // Opens in new tab
 
 // Answer
 navigate('/results/answer', { state: response })
 
 // Error
-setError(response.data.message) // Shows inline
+setError("Nothing turned up for that. Try asking about a company, team, or domain related to SPC. Curiosity's a good start, though.") // Shows inline
 ```
 
 ### 5. User Experience Features
@@ -66,7 +69,9 @@ The complete API contract is documented in `BACKEND_API_CONTRACT.md`:
    - Use for: "show me AI companies", "companies in blockchain"
 
 2. **Redirect** (`type: "redirect"`)
-   - Returns URL to redirect to
+   - Opens URL in a new tab
+   - Relative URLs (e.g., `/fellowship`) open `https://www.southparkcommons.com/fellowship` in new tab
+   - Absolute URLs open the exact URL in new tab
    - Use for: "tell me about fellowship", "who is on the team"
 
 3. **Answer** (`type: "answer"`)
@@ -74,7 +79,8 @@ The complete API contract is documented in `BACKEND_API_CONTRACT.md`:
    - Use for: "what is SPC's thesis", "what do you look for"
 
 4. **Error** (`type: "error"`)
-   - Returns error message
+   - Shows static friendly error message to user
+   - Backend message is logged for debugging only
    - Use for: invalid queries, not found, etc.
 
 ### Example Backend Response

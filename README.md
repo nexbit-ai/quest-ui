@@ -132,9 +132,11 @@ Displays a grid of companies matching the search query.
 - **Features:** Company cards with logos, descriptions, metadata, tags, and links
 
 ### 2. Redirect (`redirect`)
-Redirects the user to a specific URL (internal or external).
-- **Behavior:** Automatically redirects to the provided URL
-- **Supports:** Both relative paths (e.g., `/fellowship`) and absolute URLs
+Opens a specific URL in a new tab.
+- **Behavior:** 
+  - Relative URLs (e.g., `/fellowship`, `/team`) → Opens `https://www.southparkcommons.com{url}` in new tab
+  - Absolute URLs (e.g., `https://example.com`) → Opens the exact URL in new tab
+- **Use Cases:** South Park Commons pages, external resources
 
 ### 3. Answer (`answer`)
 Displays detailed information/answer to the query.
@@ -143,9 +145,10 @@ Displays detailed information/answer to the query.
 - **Features:** Formatted content with sections and related links
 
 ### 4. Error (`error`)
-Shows an error message to the user.
-- **Behavior:** Displays error message inline on the search page
-- **User stays on the homepage**
+Shows a friendly error message to the user.
+- **Behavior:** Displays a static, friendly message inline on the search page
+- **Message:** "Nothing turned up for that. Try asking about a company, team, or domain related to SPC. Curiosity's a good start, though."
+- **User stays on the homepage** and can try a new search
 
 ## Backend Contract
 

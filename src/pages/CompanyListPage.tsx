@@ -72,7 +72,7 @@ const CompanyListPage = () => {
                   rel="noopener noreferrer" 
                   className="company-link"
                 >
-                  Visit Website →
+                  View Details →
                 </a>
               )}
             </div>
