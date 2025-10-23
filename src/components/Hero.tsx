@@ -91,8 +91,13 @@ const Hero = () => {
               className="search-button" 
               onClick={handleSearch}
               disabled={isLoading || !searchQuery.trim()}
+              aria-label="Search"
             >
-              {isLoading ? 'Searching...' : 'Go'}
+              {isLoading ? (
+                <span className="loading-spinner">⋯</span>
+              ) : (
+                <span className="arrow-icon">→</span>
+              )}
             </button>
           </div>
           {error && (
