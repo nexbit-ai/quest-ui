@@ -234,8 +234,8 @@
 }
 
 ._1-button {
-  background-color: #6366f1;
-  color: #fff;
+  background-color: #99b0ff;
+  color: #000;
 }
 
 ._1-button:hover {
@@ -243,7 +243,7 @@
 }
 
 .apply-button {
-  background-color: #e4e76f;
+  background-color: #faf08a;
   color: #253533;
 }
 
