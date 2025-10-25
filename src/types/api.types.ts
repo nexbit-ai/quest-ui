@@ -15,7 +15,7 @@ export interface BaseApiResponse {
 
 // Company interface
 export interface Company {
-  id: string
+  id?: string
   name: string
   description: string
   logo?: string
@@ -24,6 +24,7 @@ export interface Company {
   founded?: string
   team_size?: string
   tags?: string[]
+  founders?: string
 }
 
 // 1. Company List Response
@@ -52,7 +53,9 @@ export interface AnswerResponse extends BaseApiResponse {
   type: ResponseType.ANSWER
   data: {
     title: string
-    content: string // Can be HTML or markdown
+    description?: string
+    content?: string // Can be HTML or markdown
+    companies?: Company[]
     sections?: Array<{
       heading: string
       content: string

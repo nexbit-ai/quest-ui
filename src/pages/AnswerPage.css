@@ -11,11 +11,24 @@
 
 .answer-title {
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 48px;
+  font-size: 36px;
   font-weight: 400;
   margin: 0;
   color: #253533;
   line-height: 1.2;
+}
+
+.answer-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666;
+  margin: 48px 0 0 0;
+  font-weight: 400;
+  min-height: 1.6em;
+}
+
+.answer-description.typing {
+  border-right: none;
 }
 
 .answer-content {
@@ -84,6 +97,9 @@
 
 .related-links {
   padding-top: 32px;
+}
+
+.related-links.with-companies {
   border-top: 1px solid #d4d4d4;
 }
 
@@ -119,9 +135,135 @@
   transform: translateX(4px);
 }
 
+/* Companies Section */
+.companies-section {
+  margin-top: 40px;
+}
+
+.companies-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0 0 24px 0;
+  color: #253533;
+}
+
+.companies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.company-card {
+  background: #ffffff;
+  border: 1px solid #d4d4d4;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.2s ease;
+}
+
+.company-card:hover {
+  border-color: #253533;
+  box-shadow: 0 4px 12px rgba(37, 53, 51, 0.1);
+}
+
+.company-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.company-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.company-info {
+  flex: 1;
+}
+
+.company-name {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #253533;
+}
+
+.company-founders {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  font-style: italic;
+}
+
+.company-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #666;
+  margin: 0 0 16px 0;
+}
+
+.company-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.company-stage,
+.company-founded,
+.company-team-size {
+  font-size: 14px;
+  padding: 4px 8px;
+  background: #f9f9f9;
+  border-radius: 4px;
+  color: #253533;
+  font-weight: 500;
+}
+
+.company-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.company-tag {
+  font-size: 12px;
+  padding: 4px 8px;
+  background: #e8f4f8;
+  color: #253533;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.company-website {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  color: #253533;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.company-website:hover {
+  opacity: 0.7;
+}
+
 @media (max-width: 767px) {
   .answer-title {
-    font-size: 32px;
+    font-size: 28px;
+  }
+
+  .answer-description {
+    font-size: 16px;
+    margin: 36px 0 0 0;
   }
 
   .answer-main {
@@ -134,6 +276,36 @@
 
   .answer-section {
     padding: 24px;
+  }
+
+  .companies-title {
+    font-size: 28px;
+  }
+
+  .companies-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .company-card {
+    padding: 20px;
+  }
+
+  .company-header {
+    gap: 12px;
+  }
+
+  .company-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .company-name {
+    font-size: 18px;
+  }
+
+  .company-details {
+    gap: 8px;
   }
 }
 
