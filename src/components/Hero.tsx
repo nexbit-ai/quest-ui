@@ -7,52 +7,32 @@ import { ResponseType } from '../types/api.types'
 // Question categories with their respective questions
 const QUESTION_CATEGORIES = {
   'Domain-Based Company Queries': [
-    'Show me all B2B companies',
-    'What are the latest fintech investments?',
-    'List blockchain companies in our portfolio'
-  ],
-  'Multi-Domain Queries': [
-    'Show me latest AI and blockchain companies',
-    'What B2B and fintech startups do we have?'
+    'Show me all B2B and fintech companies',
+    'What are the latest SaaS investments?',
+    'List blockchain companies in portfolio'
   ],
   'Stage-Based Queries': [
     'Show me all unicorn companies',
-    'What seed stage companies do we have?',
+    'What seed stage companies have you invested in?',
     'List series A investments'
   ],
-  'Description-Based Searches': [
-    'Show me ecommerce companies',
-    'What platform companies do we have?',
-    'List AI companies'
-  ],
   'Location-Based Queries': [
-    'Show me companies in San Francisco',
-    'What companies are in New York?',
+    'What companies are based in New York?',
     'List Bengaluru startups'
   ],
   'Year-Based Queries': [
     'Show me companies founded in 2024',
-    'What companies were founded in 2020?'
-  ],
-  'Latest/Recent Queries': [
+    'What companies were founded in 2020?',
     'What are the latest investments?',
-    'Show me recent B2B startups',
-    'List latest AI companies'
   ],
-  'Hybrid Queries': [
-    'Show me latest B2B companies in San Francisco',
-    'What seed stage fintech companies do we have?',
-    'List unicorn companies founded in 2018'
+  'Investment Thesis Queries': [
+    'What is SPC\'s investment thesis?',
+    'What do you look for in founders?',
+    'What is SPC\'s investment philosophy?'
   ],
-  'Alias-Based Queries': [
-    'Show me enterprise companies',
-    'What SaaS companies do we have?',
-    'List financial technology companies'
-  ],
-  'Comprehensive Portfolio Queries': [
-    'Show me our entire portfolio',
-    'What companies do we have?',
-    'List all investments'
+  'Company Details Queries': [
+    'What does Airtable do?',
+    'Who is the founder of Titan?'
   ]
 }
 
@@ -172,7 +152,7 @@ const Hero = () => {
               aria-label="Search"
             >
               {isLoading ? (
-                <span className="loading-spinner">⋯</span>
+                <div className="loading-spinner"></div>
               ) : (
                 <span className="arrow-icon">→</span>
               )}

@@ -72,7 +72,7 @@ const AnswerPage = () => {
 
           {companies && companies.length > 0 && (
             <div className="companies-section">
-              <h2 className="companies-title">Related Companies</h2>
+              <h2 className="companies-title">More Details</h2>
               <div className="companies-grid">
                 {companies.map((company, index) => (
                   <div key={index} className="company-card">

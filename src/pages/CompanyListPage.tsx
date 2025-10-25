@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import { CompanyListResponse } from '../types/api.types'
 import './CompanyListPage.css'
 
@@ -6,6 +7,29 @@ const CompanyListPage = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const data = location.state as CompanyListResponse
+  const [displayedDescription, setDisplayedDescription] = useState('')
+  const [isTyping, setIsTyping] = useState(false)
+
+  // Typewriter effect for description
+  useEffect(() => {
+    if (!data?.data?.description) return
+
+    const description = data.data.description
+    let currentIndex = 0
+    setIsTyping(true)
+
+    const typeInterval = setInterval(() => {
+      if (currentIndex < description.length) {
+        setDisplayedDescription(description.slice(0, currentIndex + 1))
+        currentIndex++
+      } else {
+        setIsTyping(false)
+        clearInterval(typeInterval)
+      }
+    }, 15) // Adjust speed here (lower = faster)
+
+    return () => clearInterval(typeInterval)
+  }, [data?.data?.description])
 
   if (!data || !data.data) {
     return (
@@ -29,7 +53,11 @@ const CompanyListPage = () => {
           ← Back to Search
         </button>
         <h1 className="page-title">{title}</h1>
-        {description && <p className="page-description">{description}</p>}
+        {description && (
+          <p className={`page-description ${isTyping ? 'typing' : ''}`}>
+            {displayedDescription}
+          </p>
+        )}
         <div className="result-count">{total_count} {total_count === 1 ? 'company' : 'companies'} found</div>
       </div>
 

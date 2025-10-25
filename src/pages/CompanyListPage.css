@@ -40,6 +40,11 @@
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  min-height: 1.6em;
+}
+
+.page-description.typing {
+  /* No visual changes during typing - just smooth text reveal */
 }
 
 .result-count {

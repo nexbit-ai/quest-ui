@@ -1,8 +1,6 @@
-import { useState } from 'react'
 import './PathsSPC.css'
 
 const PathsSPC = () => {
-  const [currentCard, setCurrentCard] = useState(0)
   
   const cards = [
     {

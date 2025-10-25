@@ -25,6 +25,10 @@
   margin: 48px 0 0 0;
   font-weight: 400;
   min-height: 1.6em;
+  background: #f0f0f0;
+  padding: 20px 24px;
+  border-radius: 8px;
+  border-left: 4px solid #253533;
 }
 
 .answer-description.typing {
@@ -264,6 +268,7 @@
   .answer-description {
     font-size: 16px;
     margin: 36px 0 0 0;
+    padding: 16px 20px;
   }
 
   .answer-main {
