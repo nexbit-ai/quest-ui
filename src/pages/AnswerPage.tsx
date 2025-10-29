@@ -49,7 +49,7 @@ const AnswerPage = () => {
   return (
     <div className="container page-container">
       <div className="answer-container">
-        <button onClick={() => navigate('/')} className="back-link">
+        <button onClick={() => navigate('/demo')} className="back-link">
           ← Back to Search
         </button>
 

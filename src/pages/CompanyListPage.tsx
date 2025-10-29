@@ -49,7 +49,7 @@ const CompanyListPage = () => {
   return (
     <div className="container page-container">
       <div className="page-header">
-        <button onClick={() => navigate('/')} className="back-link">
+        <button onClick={() => navigate('/demo')} className="back-link">
           ← Back to Search
         </button>
         <h1 className="page-title">{title}</h1>
